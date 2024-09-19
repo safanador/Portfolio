@@ -1,101 +1,142 @@
-import Image from "next/image";
+"use client"
+import { IoLogoLinkedin } from "react-icons/io5";
+import { FaGithub } from "react-icons/fa";
+import { IoLogoInstagram } from "react-icons/io5";
+import { FaXTwitter } from "react-icons/fa6";
+import { useState } from "react";
+import JobExperience from "./components/JobExperience";
+import Projects from "./components/Projects";
+
+
 
 export default function Home() {
-  return (
-    <div className="grid  items-center bg-slate-900 md:grid-cols-2 justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8  items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
+  const stack = ["Javascript", "TypeScript", "Next.js", "Nest.js"];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    setMousePosition({x , y});
+  }
+  return (
+    <div className="relative flex flex-col lg:justify-end bg-slate-900 lg:flex-row pb-4 sm:px-20 font-[family-name:var(--font-geist-sans)]" onMouseMove={handleMouseMove} style={{background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(22,38,67, 1) 0%, rgba(15, 23, 42, 1)23%`,}}>
+      <main id="header" className="lg:fixed lg:top-0 lg:left-0 flex flex-col items-center lg:py-20 mr-8 w-full lg:w-1/2">
+        <header className="flex flex-col text-slate-200 p-6 sm:p-0 w-full lg:w-[400px] h-72 gap-3">
+          <h1 className="text-5xl font-bold w-auto">Sergio Afanador</h1>
+          <h3 className="font-medium text-2xl">Junior Frontend Developer</h3>
+          <p className="text-gray-300 w-auto">Construyo experiencias digitales con un excelente cumplimiento de tiempos de entrega.</p>
+            <ul className="lg:hidden flex flex-row gap-4">
+              <a href="https://www.linkedin.com/in/sergio-afanador-bayona-51b1771a1/" title="Linkedin"><IoLogoLinkedin className="hover:cursor-pointer hover:text-white text-gray-400" size={26} />
+              </a>
+              <a href="https://github.com/safanador" title="Github"><FaGithub className="hover:cursor-pointer hover:text-white text-gray-400" size={26}/>
+              </a>
+              <a href="#" title="Instagram"><IoLogoInstagram className="hover:cursor-pointer hover:text-white text-gray-400" size={26}/>
+              </a>
+              <a href="#" title="Twitter"><FaXTwitter className="hover:cursor-pointer hover:text-white text-gray-400" size={26}/>
+              </a>
+            </ul>
+            <nav className="hidden lg:flex md:mt-16 md:mb-20 ">
+              <ul className=" flex flex-col gap-6">
+                <li>
+                  <a href="#about" className="group flex items-center flex-row relative">
+                    <span className="nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200">
+                    </span>
+                    <span className="pl-12 hover:pl-20 transition-all pr-5">
+                        Sobre mi
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#experience" className="group flex items-center flex-row relative">
+                    <span className="nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200">
+                    </span>
+                    <span className="pl-12 hover:pl-20 transition-all">
+                      Experiencia
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#projects" className="group flex items-center flex-row relative">
+                    <span className="nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200">
+                    </span>
+                    <span className="pl-12 hover:pl-20 transition-all pr-4">
+                      Projectos
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <ul className="hidden lg:flex  md:mt-6 md:flex-row md:gap-4">
+              <a href="https://www.linkedin.com/in/sergio-afanador-bayona-51b1771a1/" title="Linkedin"><IoLogoLinkedin className="hover:cursor-pointer hover:text-white text-gray-400" size={26} />
+              </a>
+              <a href="https://github.com/safanador" title="Github"><FaGithub className="hover:cursor-pointer hover:text-white text-gray-400" size={26}/>
+              </a>
+              <a href="#" title="Instagram"><IoLogoInstagram className="hover:cursor-pointer hover:text-white text-gray-400" size={26}/>
+              </a>
+              <a href="#" title="Twitter"><FaXTwitter className="hover:cursor-pointer hover:text-white text-gray-400" size={26}/>
+              </a>
+            </ul>
+        </header>
       </main>
-      <footer className=" flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-slate-200"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <main id="content" className=" pl-8 pt-24 overflow-y-auto lg:w-1/2 lg:py-24">
+        <section id="about" className="lg:w-4/5 mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-full bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-6 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Sobre mi</h2>
+          </div>
+          <div className="w-full pr-4">
+            <p className="mb-4 text-gray-300">
+              Back in 2012, I decided to try my hand at creating custom Tumblr themes and tumbled head first into the rabbit hole of coding and web development. Fast-forward to today, and I’ve had the privilege of building software for an advertising agency, a start-up, a huge corporation, and a digital product studio.
+            </p>
+            <p className="mb-4 text-gray-300">
+              My main focus these days is building accessible user interfaces for our customers at Klaviyo. I most enjoy building software in the sweet spot where design and engineering meet — things that look good but are also built well under the hood. In my free time, I have also released an online video course that covers everything you need to know to build a web app with the Spotify API.
+            </p>
+            <p className="text-gray-300">
+              When I’m not at the computer, I’m usually rock climbing, reading, hanging out with my wife and two cats, or running around Hyrule searching for Korok seeds.
+            </p>
+          </div>
+        </section>
+        <section className="lg:w-4/5 mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+          <div>
+            <JobExperience startDate="2024" endDate="Present" title="Senior Frontend Next.js" description="Build and maintain critical components used to construct Kaviyos frontend, across the whole product. Work closely with cross - functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility."
+            stack={stack}/>
+          </div>
+          <div>
+            <JobExperience startDate="2020" endDate="2023" title="mid-senior Frontend Next.js" 
+            description="Build and maintain critical components used to construct Kaviyos frontend, across the whole product. Work closely with cross - functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility."
+            stack={stack}/>
+          </div>
+          <div>
+            <JobExperience startDate="2018" endDate="2020" title="Junior Frontend Next.js" description="Build and maintain critical components used to construct Kaviyos frontend, across the whole product. Work closely with cross - functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility."
+            stack={stack}/>
+          </div>
+        </section>
+        <section>
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+            <h2>Proyectos</h2>
+          </div>
+          <div>
+            <ul className="group/list">
+              <li className="mb-12">
+                <Projects title="Build a Spotify connected" description="Video course that teaches how to build a web app with the spotify web api. Topics covered include the principles of rest api. user auth flows, node, express, react, styled components and more."
+                imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1726676214/ogtgcqpm3fmylnf09plb.png" />
+              </li>
+              <li className="mb-12">
+                <Projects title="Build a Spotify connected" description="Video course that teaches how to build a web app with the spotify web api. Topics covered include the principles of rest api. user auth flows, node, express, react, styled components and more."
+                imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1726676214/ogtgcqpm3fmylnf09plb.png" />
+              </li>
+              <li className="mb-12">
+                <Projects title="Build a Spotify connected" description="Video course that teaches how to build a web app with the spotify web api. Topics covered include the principles of rest api. user auth flows, node, express, react, styled components and more."
+                imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1726676214/ogtgcqpm3fmylnf09plb.png" />
+              </li>
+              <li className="mb-12">
+                <Projects title="Build a Spotify connected" description="Video course that teaches how to build a web app with the spotify web api. Topics covered include the principles of rest api. user auth flows, node, express, react, styled components and more."
+                imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1726676214/ogtgcqpm3fmylnf09plb.png" />
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
