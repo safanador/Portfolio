@@ -3,21 +3,29 @@ import { IoLogoLinkedin } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import JobExperience from "./components/JobExperience";
 import Projects from "./components/Projects";
 
 
 
+
 export default function Home() {
+  const aboutRef = useRef<HTMLDivElement | null>(null);
+  const experienceRef = useRef<HTMLDivElement | null>(null);
+  const projectRef = useRef<HTMLDivElement | null>(null);
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
   const stack = ["Javascript", "TypeScript", "Next.js", "Nest.js"];
+  const [selectedAncor, setSelectedAncor] = useState("");
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const x = e.clientX;
     const y = e.clientY;
 
     setMousePosition({x , y});
+  }
+  const handleAncorClick = (ancor: string)=>{
+    setSelectedAncor(ancor);
   }
   return (
     <div className="relative flex flex-col lg:justify-end bg-slate-900 lg:flex-row pb-4 sm:px-20 font-[family-name:var(--font-geist-sans)]" onMouseMove={handleMouseMove} style={{background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(22,38,67, 1) 0%, rgba(15, 23, 42, 1)23%`,}}>
@@ -39,28 +47,68 @@ export default function Home() {
             <nav className="hidden lg:flex md:mt-16 md:mb-20 ">
               <ul className=" flex flex-col gap-6">
                 <li>
-                  <a href="#about" className="group flex items-center flex-row relative">
-                    <span className="nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200">
+                  <a onClick={()=>{
+                    handleAncorClick('about'); 
+                    aboutRef.current?.scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                  }} className="group flex items-center flex-row relative">
+                    <span className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${
+                      selectedAncor === "about"
+                      ? "group-[]:bg-slate-200 group-[]:w-16"
+                      : ""
+                    }`}>
                     </span>
-                    <span className="pl-12 hover:pl-20 transition-all pr-5">
+                    <span className={`pl-12 hover:pl-20 transition-all pr-5 ${
+                      selectedAncor === "about"
+                      ? "pl-20"
+                      : ""
+                    }`}>
                         Sobre mi
                     </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#experience" className="group flex items-center flex-row relative">
-                    <span className="nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200">
+                  <a onClick={()=>{
+                    handleAncorClick("experience");
+                    experienceRef.current?.scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                    
+                    }} className="group flex items-center flex-row relative">
+                    <span className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${
+                      selectedAncor === "experience"
+                      ? "group-[]:bg-slate-200 group-[]:w-16"
+                      : ""
+                    }`}>
                     </span>
-                    <span className="pl-12 hover:pl-20 transition-all">
+                    <span className={`pl-12 hover:pl-20 transition-all ${
+                      selectedAncor === "experience"
+                      ? "pl-20"
+                      : ""
+                    }`}>
                       Experiencia
                     </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#projects" className="group flex items-center flex-row relative">
-                    <span className="nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200">
+                  <a onClick={()=>{
+                    handleAncorClick("projects");
+                    projectRef.current?.scrollIntoView({
+                      behavior:'smooth'
+                    })
+                  }} className="group flex items-center flex-row relative">
+                    <span className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${
+                      selectedAncor === "projects"
+                      ? "group-[]:bg-slate-200 group-[]:w-16"
+                      : ""
+                    }`}>
                     </span>
-                    <span className="pl-12 hover:pl-20 transition-all pr-4">
+                    <span className={`pl-12 hover:pl-20 transition-all ${
+                      selectedAncor === "projects"
+                      ? "pl-20"
+                      : ""
+                    }`}>
                       Projectos
                     </span>
                   </a>
@@ -80,7 +128,7 @@ export default function Home() {
         </header>
       </main>
       <main id="content" className=" pl-8 pt-24 overflow-y-auto lg:w-1/2 lg:py-24">
-        <section id="about" className="lg:w-4/5 mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+        <section id="about" ref={aboutRef} className="lg:w-4/5 mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-full bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-6 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Sobre mi</h2>
           </div>
@@ -103,7 +151,7 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section className="lg:w-4/5 mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+        <section id="experience" ref={experienceRef} className="lg:w-4/5 mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
           <div>
             <JobExperience startDate="2024" endDate="Present" title="Senior Frontend Next.js" description="Build and maintain critical components used to construct Kaviyos frontend, across the whole product. Work closely with cross - functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility."
             stack={stack}/>
@@ -118,7 +166,7 @@ export default function Home() {
             stack={stack}/>
           </div>
         </section>
-        <section>
+        <section id="projects" ref={projectRef}>
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
             <h2>Proyectos</h2>
           </div>
