@@ -15,7 +15,12 @@ export default function Home() {
   const experienceRef = useRef<HTMLDivElement | null>(null);
   const projectRef = useRef<HTMLDivElement | null>(null);
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
-  const stack = ["Javascript", "TypeScript", "Next.js", "Nest.js"];
+  const stack = ["Javascript", "TypeScript", "Next.js", "MongoDB", "Node.js","TailwindCSS","React","Stripe", "MercadoPago","ShadcnUI"];
+  const stackRentalProject = ["Javascript", "TypeScript", "Next.js", "MongoDB", "Shadcn","TailwindCSS","Node.Js","React"];
+  const stackEcommerceProject = ["TypeScript", "Next.js", "Sanity.io", "Shadcn","TailwindCSS","Stripe","React"];
+  const siteUri = {
+    rental: "https://rentalbike.vercel.app/", ecommerce: "https://nextjs-sanitycommerce.vercel.app/",
+  };
   const [selectedAncor, setSelectedAncor] = useState("");
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -141,8 +146,7 @@ export default function Home() {
             </p>
             <p className="mb-4 text-gray-300">
               Me caracterizo por mi capacidad para escribir código
-              eficiente, modular y reutilizable, asimismo, me caracterizo por estar abierto al uso y aprendizaje
-              de tecnologías diferentes a las que frecuentemente uso.
+              eficiente, modular y reutilizable, Apasionado por aprender y mejorar continuamente, busco oportunidades para crecer en un entorno colaborativo donde pueda aplicar mis habilidades y contribuir al éxito del equipo.
             </p>
             <p className="text-gray-300">
               Me identifico como una persona capaz de solucionar problemas, atenta al detalle, capaz de
@@ -153,16 +157,7 @@ export default function Home() {
         </section>
         <section id="experience" ref={experienceRef} className="lg:w-4/5 mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
           <div>
-            <JobExperience startDate="2024" endDate="Present" title="Senior Frontend Next.js" description="Build and maintain critical components used to construct Kaviyos frontend, across the whole product. Work closely with cross - functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility."
-            stack={stack}/>
-          </div>
-          <div>
-            <JobExperience startDate="2020" endDate="2023" title="mid-senior Frontend Next.js" 
-            description="Build and maintain critical components used to construct Kaviyos frontend, across the whole product. Work closely with cross - functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility."
-            stack={stack}/>
-          </div>
-          <div>
-            <JobExperience startDate="2018" endDate="2020" title="Junior Frontend Next.js" description="Build and maintain critical components used to construct Kaviyos frontend, across the whole product. Work closely with cross - functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web accessibility."
+            <JobExperience startDate="2023" endDate="2024" title="Junior Frontend Next.js" description="Diseño y la implementación de aplicaciones de comercio electrónico, optimizando la experiencia del usuario y asegurando un proceso de compra fluido. Implementé funciones como carritos de compra, gestión de productos y procesos de pago, garantizando la integración efectiva con sistemas de pago y APIs externas. Desarrollé componentes reutilizables con Shadcn UI, optimizando el flujo de trabajo y la consistencia del diseño en las aplicaciones."
             stack={stack}/>
           </div>
         </section>
@@ -173,21 +168,14 @@ export default function Home() {
           <div>
             <ul className="group/list">
               <li className="mb-12">
-                <Projects title="Build a Spotify connected" description="Video course that teaches how to build a web app with the spotify web api. Topics covered include the principles of rest api. user auth flows, node, express, react, styled components and more."
-                imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1726676214/ogtgcqpm3fmylnf09plb.png" />
+                  <Projects title="Rental motorcycle Web" tecnologies={stackRentalProject} description="Se realizó un demo de aplicación web FullStack en Next.js 14, este sitio se encarga de tomar, gestionar y hacer pago de reservas para una empresa local de renta de motocicletas, integracion con pasarela de pago. Frontend construido con React.js, implementando componentes de Shadcn UI y estilos con tailwindCSS." siteUri={siteUri.rental}
+                  imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1726676214/ogtgcqpm3fmylnf09plb.png" />
               </li>
               <li className="mb-12">
-                <Projects title="Build a Spotify connected" description="Video course that teaches how to build a web app with the spotify web api. Topics covered include the principles of rest api. user auth flows, node, express, react, styled components and more."
-                imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1726676214/ogtgcqpm3fmylnf09plb.png" />
+                  <Projects tecnologies={stackEcommerceProject} title="FullStack Ecommerce Next.js web " description="Desarrollo de aplicacion FullStack de Ecommerce, utlizando headless CMS Sanity.io moderna interfaz de usuario e integracion de pagos con Stripe, se realizo el despliegue en Vercel." siteUri={siteUri.ecommerce}
+                  imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1727482567/Captura_de_pantalla_2024-09-27_a_la_s_7.14.36_p._m._qmy7fc.png" />
               </li>
-              <li className="mb-12">
-                <Projects title="Build a Spotify connected" description="Video course that teaches how to build a web app with the spotify web api. Topics covered include the principles of rest api. user auth flows, node, express, react, styled components and more."
-                imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1726676214/ogtgcqpm3fmylnf09plb.png" />
-              </li>
-              <li className="mb-12">
-                <Projects title="Build a Spotify connected" description="Video course that teaches how to build a web app with the spotify web api. Topics covered include the principles of rest api. user auth flows, node, express, react, styled components and more."
-                imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1726676214/ogtgcqpm3fmylnf09plb.png" />
-              </li>
+              
             </ul>
           </div>
         </section>
