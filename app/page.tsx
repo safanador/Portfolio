@@ -156,9 +156,16 @@ export default function Home() {
           </div>
         </section>
         <section id="experience" ref={experienceRef} className="lg:w-4/5 mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+        <div className="sticky top-0 z-20 -mx-6 mb-4 w-full bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-6 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Experiencia</h2>
+        </div>
           <div>
-            <JobExperience startDate="2023" endDate="2024" title="Junior Frontend Next.js" description="Diseño y la implementación de aplicaciones de comercio electrónico, optimizando la experiencia del usuario y asegurando un proceso de compra fluido. Implementé funciones como carritos de compra, gestión de productos y procesos de pago, garantizando la integración efectiva con sistemas de pago y APIs externas. Desarrollé componentes reutilizables con Shadcn UI, optimizando el flujo de trabajo y la consistencia del diseño en las aplicaciones."
-            stack={stack}/>
+            <ol className="group/list">
+              <li className="mb-12">
+                <JobExperience startDate="2023" endDate="2024" title="Junior Frontend Next.js" description="Diseño y la implementación de aplicaciones de comercio electrónico, optimizando la experiencia del usuario y asegurando un proceso de compra fluido. Implementé funciones como carritos de compra, gestión de productos y procesos de pago, garantizando la integración efectiva con sistemas de pago y APIs externas. Desarrollé componentes reutilizables con Shadcn UI, optimizando el flujo de trabajo y la consistencia del diseño en las aplicaciones."
+                stack={stack}/>
+              </li>
+            </ol>
           </div>
         </section>
         <section id="projects" ref={projectRef}>
