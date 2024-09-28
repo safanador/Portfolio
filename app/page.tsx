@@ -25,7 +25,7 @@ export default function Home() {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const x = e.clientX;
-    const y = e.clientY;
+    const y = e.clientY + window.scrollY;
 
     setMousePosition({x , y});
   }
