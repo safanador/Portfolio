@@ -16,6 +16,7 @@ export default function Home() {
   const projectRef = useRef<HTMLDivElement | null>(null);
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
   const stack = ["Javascript", "TypeScript", "Next.js", "MongoDB", "Node.js","TailwindCSS","React","Stripe", "MercadoPago","ShadcnUI"];
+  const stackResTech = ["Javascript", "Vue.js", "Inertia.js", "MySQL", "Laravel","TailwindCSS","GitHub","Trello","PrimeVue"];
   const stackRentalProject = ["Javascript", "TypeScript", "Next.js", "MongoDB", "Shadcn","TailwindCSS","Node.Js","React"];
   const stackEcommerceProject = ["TypeScript", "Next.js", "Sanity.io", "Shadcn","TailwindCSS","Stripe","React"];
   const stackEnterviewProject = ["Vue 3", "Node.js", "Express.js", "MongoDB","TailwindCSS"];
@@ -166,7 +167,14 @@ export default function Home() {
           <div>
             <ol className="group/list">
               <li className="mb-12">
-                <JobExperience startDate="2023" endDate="2024" title="Junior Frontend Next.js" description="Diseño y la implementación de aplicaciones de comercio electrónico, optimizando la experiencia del usuario y asegurando un proceso de compra fluido. Implementé funciones como carritos de compra, gestión de productos y procesos de pago, garantizando la integración efectiva con sistemas de pago y APIs externas. Desarrollé componentes reutilizables con Shadcn UI, optimizando el flujo de trabajo y la consistencia del diseño en las aplicaciones."
+                <JobExperience startDate="Jun/24 " endDate=" Dec/24" title="Desarrollador frontend junior" description="Diseño, desarrollo y mantenimiento de interfaces visuales, fáciles de usar para usuarios y trabajadores de
+                restaurantes. Esto implica escribir código HTML, CSS y JavaScript, usando
+                frameworks y tecnologías como Vue.js, Laravel, Inertia.js, MySQL, siguiendo los principios
+                de diseño mobile-first."
+                stack={stackResTech}/>
+              </li>
+              <li className="mb-12">
+                <JobExperience startDate="Aug/23 " endDate=" May/24" title="Junior Frontend Next.js" description="Diseño y la implementación de aplicaciones de comercio electrónico, optimizando la experiencia del usuario y asegurando un proceso de compra fluido. Implementé funciones como carritos de compra, gestión de productos y procesos de pago, garantizando la integración efectiva con sistemas de pago y APIs externas. Desarrollé componentes reutilizables con Shadcn UI, optimizando el flujo de trabajo y la consistencia del diseño en las aplicaciones."
                 stack={stack}/>
               </li>
             </ol>
