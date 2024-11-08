@@ -179,7 +179,7 @@ export default function Home() {
           <div>
             <ul className="group/list">
             <li className="mb-12">
-                  <Projects title="Rental motorcycle Web" tecnologies={stackEnterviewProject} description="Se realizó un demo de aplicación web para que restaurantes presenten virtualmente sus menus y productos, la aplicación fue diseñada para dispositivos móviles como prueba para entrevista para la realización del proyecto." siteUri={siteUri.restaurants}
+                  <Projects title="Rental motorcycle Web" tecnologies={stackEnterviewProject} description="Se realizó un demo de aplicación web para dispositivos móviles para que restaurantes presenten virtualmente sus menus y productos, la aplicación fue diseñada como prueba para entrevista para la realización del proyecto." siteUri={siteUri.restaurants}
                   imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1731028617/qilalyoo3kogub4ckoue.png" />
               </li>
               <li className="mb-12">
