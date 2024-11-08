@@ -18,8 +18,12 @@ export default function Home() {
   const stack = ["Javascript", "TypeScript", "Next.js", "MongoDB", "Node.js","TailwindCSS","React","Stripe", "MercadoPago","ShadcnUI"];
   const stackRentalProject = ["Javascript", "TypeScript", "Next.js", "MongoDB", "Shadcn","TailwindCSS","Node.Js","React"];
   const stackEcommerceProject = ["TypeScript", "Next.js", "Sanity.io", "Shadcn","TailwindCSS","Stripe","React"];
+  const stackEnterviewProject = ["Vue 3", "Node.js", "Express.js", "MongoDB","TailwindCSS"];
+
   const siteUri = {
-    rental: "https://rentalbike.vercel.app/", ecommerce: "https://nextjs-sanitycommerce.vercel.app/",
+    rental: "https://rentalbike.vercel.app/", 
+    ecommerce: "https://nextjs-sanitycommerce.vercel.app/",
+    restaurants: "https://frontendprueba.vercel.app/",
   };
   const [selectedAncor, setSelectedAncor] = useState("");
 
@@ -174,6 +178,10 @@ export default function Home() {
           </div>
           <div>
             <ul className="group/list">
+            <li className="mb-12">
+                  <Projects title="Rental motorcycle Web" tecnologies={stackEnterviewProject} description="Se realizó un demo de aplicación web para que restaurantes presenten virtualmente sus menus y productos, la aplicación fue diseñada para dispositivos móviles como prueba para entrevista para la realización del proyecto." siteUri={siteUri.restaurants}
+                  imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1731028617/qilalyoo3kogub4ckoue.png" />
+              </li>
               <li className="mb-12">
                   <Projects title="Rental motorcycle Web" tecnologies={stackRentalProject} description="Se realizó un demo de aplicación web FullStack en Next.js 14, este sitio se encarga de tomar, gestionar y hacer pago de reservas para una empresa local de renta de motocicletas, integracion con pasarela de pago. Frontend construido con React.js, implementando componentes de Shadcn UI y estilos con tailwindCSS." siteUri={siteUri.rental}
                   imageUrl="https://res.cloudinary.com/djqpy9gf0/image/upload/v1726676214/ogtgcqpm3fmylnf09plb.png" />
