@@ -100,16 +100,14 @@ export default function Home() {
                   className="group flex items-center flex-row relative"
                 >
                   <span
-                    className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${
-                      selectedAncor === "about"
+                    className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${selectedAncor === "about"
                         ? "group-[]:bg-slate-200 group-[]:w-16"
                         : ""
-                    }`}
+                      }`}
                   ></span>
                   <span
-                    className={`pl-12 hover:pl-20 transition-all pr-5 ${
-                      selectedAncor === "about" ? "pl-20" : ""
-                    }`}
+                    className={`pl-12 hover:pl-20 transition-all pr-5 ${selectedAncor === "about" ? "pl-20" : ""
+                      }`}
                   >
                     Sobre mi
                   </span>
@@ -126,16 +124,14 @@ export default function Home() {
                   className="group flex items-center flex-row relative"
                 >
                   <span
-                    className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${
-                      selectedAncor === "experience"
+                    className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${selectedAncor === "experience"
                         ? "group-[]:bg-slate-200 group-[]:w-16"
                         : ""
-                    }`}
+                      }`}
                   ></span>
                   <span
-                    className={`pl-12 hover:pl-20 transition-all ${
-                      selectedAncor === "experience" ? "pl-20" : ""
-                    }`}
+                    className={`pl-12 hover:pl-20 transition-all ${selectedAncor === "experience" ? "pl-20" : ""
+                      }`}
                   >
                     Experiencia
                   </span>
@@ -152,16 +148,14 @@ export default function Home() {
                   className="group flex items-center flex-row relative"
                 >
                   <span
-                    className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${
-                      selectedAncor === "projects"
+                    className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${selectedAncor === "projects"
                         ? "group-[]:bg-slate-200 group-[]:w-16"
                         : ""
-                    }`}
+                      }`}
                   ></span>
                   <span
-                    className={`pl-12 hover:pl-20 transition-all ${
-                      selectedAncor === "projects" ? "pl-20" : ""
-                    }`}
+                    className={`pl-12 hover:pl-20 transition-all ${selectedAncor === "projects" ? "pl-20" : ""
+                      }`}
                   >
                     Projectos
                   </span>
@@ -209,8 +203,8 @@ export default function Home() {
           ref={aboutRef}
           className="lg:w-4/5 mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
         >
-          <div className="sticky top-0 z-20 -mx-6 mb-4 w-full bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-6 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-full bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-6 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 ">
               Sobre mi
             </h2>
           </div>
@@ -243,8 +237,8 @@ export default function Home() {
           ref={experienceRef}
           className="lg:w-4/5 mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
         >
-          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12  lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 ">
               Experiencia
             </h2>
           </div>
@@ -266,8 +260,8 @@ export default function Home() {
           </div>
         </section>
         <section id="projects" ref={projectRef}>
-          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12  lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 ">
               Proyectos
             </h2>
           </div>
@@ -276,12 +270,12 @@ export default function Home() {
               {projectsData.map((project, index) => (
                 <li key={index} className="mb-12">
                   <Projects
-                  title={project.title}
-                  tecnologies={project.technologies}
-                  description={project.description}
-                  siteUri={project.siteUri}
-                  imageUrl={project.imageUrl}
-                />
+                    title={project.title}
+                    tecnologies={project.technologies}
+                    description={project.description}
+                    siteUri={project.siteUri}
+                    imageUrl={project.imageUrl}
+                  />
                 </li>
               ))}
             </ul>

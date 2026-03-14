@@ -1,7 +1,20 @@
 const projectsData = [
   {
-    title: "Channel Manager for tours and activities",
-    technologies: ["Next.js", "Nest.js", "MySQL", "JWT Auth", "TailwindCSS", "Cloudinary", "Digital Ocean"],
+    title: "Tu Cuadrante",
+    technologies: ["React Native", "Node.js", "MongoDB", "Google Maps API", "Expo", "Geolib"],
+    description:
+      `Aplicación de seguridad ciudadana diseñada para la localización inmediata de asistencia policial mediante georreferenciación. La plataforma optimiza la respuesta ante emergencias al conectar al usuario con su cuadrante local, automatizando:
+    1. Identificación en tiempo real del cuadrante más cercano mediante GPS
+    2. Acceso directo a líneas de contacto telefónico geolocalizadas
+    3. Gestión de ubicaciones frecuentes (Hogar/Trabajo) mediante almacenamiento local
+    4. Integración de datos abiertos (Open Data) para actualización constante de jurisdicciones`,
+    siteUri: "https://play.google.com/store/apps/details?id=com.tucuadrante",
+    imageUrl:
+      "https://res.cloudinary.com/djqpy9gf0/image/upload/v1773517374/tucuadrante_oaxnbp.png",
+  },
+  {
+    title: "Cloudnel Channel Manager",
+    technologies: ["Next.js", "Nest.js", "MySQL", "JWT", "AWS", "Docker", "Github Actions", "REST API integrations", "Payment Gateways"],
     description:
       `Plataforma SaaS para gestión centralizada de inventario y distribución en tiempo real 
     de tours/actividades turísticas. Conecta proveedores con múltiples canales de venta (OTAs, 
@@ -12,7 +25,7 @@ const projectsData = [
     4. Reporting unificado y analytics`,
     siteUri: "https://cloudnel.com/",
     imageUrl:
-      "https://res.cloudinary.com/djqpy9gf0/image/upload/v1754331579/Screenshot_2025-08-04_at_1.18.51_PM_hp2yon.png",
+      "https://res.cloudinary.com/djqpy9gf0/image/upload/v1773517640/Screenshot_2026-03-14_at_2.46.35_PM_xh7afv.png",
   },
   {
     title: "Restaurant Menu",
