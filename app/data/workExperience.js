@@ -24,7 +24,7 @@ const experiencesData = [
       endDate: "Jul/25",
       title: "Desarrollador frontend",
       description: "Diseño, desarrollo y mantenimiento de interfaces visuales, fáciles de usar para usuarios y trabajadores de restaurantes. Esto implica escribir código HTML, CSS y JavaScript, usando frameworks y tecnologías como Vue.js, Laravel, Inertia.js, MySQL, siguiendo los principios de diseño mobile-first.",
-      company: "Restech SAS",
+      company: "Restech Labs SAS",
       stack: [
         "Javascript",
         "Vue.js",
