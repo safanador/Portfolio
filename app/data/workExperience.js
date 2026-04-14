@@ -1,4 +1,5 @@
-const experiencesData = [
+const experiencesData = {
+  es: [
     {
       startDate: "Ene/25",
       endDate: "Feb/26",
@@ -55,6 +56,65 @@ const experiencesData = [
         "Payment Gateways"
       ]
     }
+  ],
+  en: [
+    {
+      startDate: "Jan/25",
+      endDate: "Feb/26",
+      title: "Mobile Developer",
+      description: "Cross-platform mobile developer with comprehensive experience in the application lifecycle: from UI design and API integration to store publishing and continuous maintenance. Specialized in creating high-performance solutions for iOS and Android using Flutter/React Native, ensuring quality through testing and timely updates.",
+      company: "Solutecia SAS",
+      stack: [
+        "Flutter",
+        "Dart",
+        "Fastlane",
+        "Firebase",
+        "REST API",
+        "Git",
+        "Responsive Design",
+        "XCode",
+        "Android Studio",
+        "Google Play Console",
+        "App Store Connect"
+      ]
+    },
+    {
+      startDate: "Oct/24",
+      endDate: "Jul/25",
+      title: "Frontend Developer",
+      description: "Design, development, and maintenance of user-friendly visual interfaces for restaurant users and workers. This involves writing HTML, CSS, and JavaScript code using frameworks and technologies like Vue.js, Laravel, Inertia.js, and MySQL, following mobile-first design principles.",
+      company: "Restech Labs SAS",
+      stack: [
+        "Javascript",
+        "Vue.js",
+        "Inertia.js",
+        "MySQL",
+        "Laravel",
+        "TailwindCSS",
+        "GitHub",
+        "Trello",
+        "PrimeVue"
+      ]
+    },
+    {
+      startDate: "Jan/24",
+      endDate: "Sep/24",
+      title: "Freelance FullStack Developer – Cloudnel Channel Manager",
+      description: "Design and implementation of a SaaS platform for real-time inventory synchronization and distribution on OTAs.",
+      company: "Freelance",
+      stack: [
+        "Next.js",
+        "Nest.js",
+        "Node.js",
+        "AWS",
+        "Docker",
+        "Git",
+        "Github Actions",
+        "REST API integrations",
+        "Payment Gateways"
+      ]
+    }
   ]
+};
 
 export default experiencesData;

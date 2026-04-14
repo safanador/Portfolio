@@ -3,12 +3,13 @@ import { IoLogoLinkedin } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import JobExperience from "./components/JobExperience";
 import Projects from "./components/Projects";
 import Image from "next/image";
 import experiencesData from "./data/workExperience";
 import projectsData from "./data/projects"
+import uiTranslations from "./data/translations";
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement | null>(null);
@@ -16,6 +17,21 @@ export default function Home() {
   const projectRef = useRef<HTMLDivElement | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [selectedAncor, setSelectedAncor] = useState("");
+  const [lang, setLang] = useState<'es' | 'en'>('es');
+
+  useEffect(() => {
+    // Detect browser language
+    const browserLang = navigator.language.split('-')[0];
+    if (browserLang === 'es') {
+      setLang('es');
+    } else {
+      setLang('en');
+    }
+  }, []);
+
+  const t = uiTranslations[lang];
+  const projects = projectsData[lang];
+  const experiences = experiencesData[lang];
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const x = e.clientX;
@@ -42,7 +58,7 @@ export default function Home() {
           <div className="flex items-center gap-1">
             <div>
               <h1 className="text-5xl font-bold w-auto">Sergio Afanador</h1>
-              <h3 className="font-medium text-2xl">Software Developer</h3>
+              <h3 className="font-medium text-2xl">{t.role}</h3>
             </div>
             <div className="rounded-full overflow-hidden border-1 border-slate-200">
               <Image
@@ -55,8 +71,7 @@ export default function Home() {
             </div>
           </div>
           <p className="text-gray-300 w-auto">
-            Construyo experiencias digitales con un excelente cumplimiento de
-            tiempos de entrega.
+            {t.tagline}
           </p>
           <ul className="lg:hidden flex flex-row gap-4">
             <a
@@ -101,15 +116,15 @@ export default function Home() {
                 >
                   <span
                     className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${selectedAncor === "about"
-                        ? "group-[]:bg-slate-200 group-[]:w-16"
-                        : ""
+                      ? "group-[]:bg-slate-200 group-[]:w-16"
+                      : ""
                       }`}
                   ></span>
                   <span
                     className={`pl-12 hover:pl-20 transition-all pr-5 ${selectedAncor === "about" ? "pl-20" : ""
                       }`}
                   >
-                    Sobre mi
+                    {t.about}
                   </span>
                 </a>
               </li>
@@ -125,15 +140,15 @@ export default function Home() {
                 >
                   <span
                     className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${selectedAncor === "experience"
-                        ? "group-[]:bg-slate-200 group-[]:w-16"
-                        : ""
+                      ? "group-[]:bg-slate-200 group-[]:w-16"
+                      : ""
                       }`}
                   ></span>
                   <span
                     className={`pl-12 hover:pl-20 transition-all ${selectedAncor === "experience" ? "pl-20" : ""
                       }`}
                   >
-                    Experiencia
+                    {t.experience}
                   </span>
                 </a>
               </li>
@@ -149,15 +164,15 @@ export default function Home() {
                 >
                   <span
                     className={`nav-indicator absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-[2px] bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 ${selectedAncor === "projects"
-                        ? "group-[]:bg-slate-200 group-[]:w-16"
-                        : ""
+                      ? "group-[]:bg-slate-200 group-[]:w-16"
+                      : ""
                       }`}
                   ></span>
                   <span
                     className={`pl-12 hover:pl-20 transition-all ${selectedAncor === "projects" ? "pl-20" : ""
                       }`}
                   >
-                    Projectos
+                    {t.projects}
                   </span>
                 </a>
               </li>
@@ -196,7 +211,7 @@ export default function Home() {
       </main>
       <main
         id="content"
-        className=" pl-8 pt-24 overflow-y-auto lg:w-1/2 lg:py-24"
+        className="pl-4 pt-24 overflow-y-auto md:pl-0 lg:w-1/2 lg:py-24"
       >
         <section
           id="about"
@@ -205,30 +220,18 @@ export default function Home() {
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-full bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-6 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0">
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 ">
-              Sobre mi
+              {t.about}
             </h2>
           </div>
           <div className="w-full pr-4">
             <p className="mb-4 text-gray-300">
-              Soy Desarrollador de software con experiencia en desarrollo de
-              interfaces accesibles y responsivas adaptadas a diferentes
-              dispositivos y tamaños de pantalla para la web y aplicaciones
-              móviles multiplataforma, usando React, Flutter y React-Native,
-              tengo experiencia realizando integraciones de API y manejo de
-              estados tanto en web como en móvil.
+              {t.bio1}
             </p>
             <p className="mb-4 text-gray-300">
-              Me caracterizo por mi capacidad para escribir código eficiente,
-              modular y reutilizable, Apasionado por aprender y mejorar
-              continuamente, busco oportunidades para crecer en un entorno
-              colaborativo donde pueda aplicar mis habilidades y contribuir al
-              éxito del equipo.
+              {t.bio2}
             </p>
             <p className="text-gray-300">
-              Me identifico como una persona capaz de solucionar problemas,
-              atenta al detalle, capaz de cumplir con tiempos de entrega y de
-              trabajar en equipo o individualmente en entornos agiles y de ritmo
-              rápido.
+              {t.bio3}
             </p>
           </div>
         </section>
@@ -239,12 +242,12 @@ export default function Home() {
         >
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12  lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0">
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 ">
-              Experiencia
+              {t.experience}
             </h2>
           </div>
           <div>
             <ol className="group/list">
-              {experiencesData.map((job, index) => (
+              {experiences.map((job: any, index: number) => (
                 <li key={index} className="mb-12">
                   <JobExperience
                     startDate={job.startDate}
@@ -262,19 +265,21 @@ export default function Home() {
         <section id="projects" ref={projectRef}>
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12  lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0">
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 ">
-              Proyectos
+              {t.projects}
             </h2>
           </div>
           <div>
             <ul className="group/list">
-              {projectsData.map((project, index) => (
+              {projects.map((project: any, index: number) => (
                 <li key={index} className="mb-12">
                   <Projects
                     title={project.title}
+                    role={project.role}
                     tecnologies={project.technologies}
                     description={project.description}
                     siteUri={project.siteUri}
-                    imageUrl={project.imageUrl}
+                    photos={project.photos}
+                    lang={lang}
                   />
                 </li>
               ))}

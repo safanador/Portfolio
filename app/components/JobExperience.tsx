@@ -19,6 +19,53 @@ function JobExperience({
   company,
 }: JobExperienceProps) {
   const tecnologies = stack;
+
+  const renderDescription = (text: string) => {
+    const lines = text.split('\n');
+    const elements: React.ReactNode[] = [];
+    let currentList: React.ReactNode[] = [];
+
+    lines.forEach((line, index) => {
+      const trimmed = line.trim();
+      const listMatch = trimmed.match(/^(\d+\.|-|\*)\s+(.*)/);
+
+      if (listMatch) {
+        currentList.push(
+          <li key={`li-${index}`} className="mb-1 pl-1">
+            {listMatch[2]}
+          </li>
+        );
+      } else {
+        if (currentList.length > 0) {
+          elements.push(
+            <ul key={`ul-${index}`} className="list-disc list-outside ml-5 mb-4 space-y-1 text-sm text-slate-400">
+              {currentList}
+            </ul>
+          );
+          currentList = [];
+        }
+
+        if (trimmed) {
+          elements.push(
+            <p key={`p-${index}`} className="mb-4 last:mb-0 text-sm text-slate-400 leading-normal">
+              {trimmed}
+            </p>
+          );
+        }
+      }
+    });
+
+    if (currentList.length > 0) {
+      elements.push(
+        <ul key="ul-final" className="list-disc list-outside ml-5 mb-4 space-y-1 text-sm text-slate-400">
+          {currentList}
+        </ul>
+      );
+    }
+
+    return elements;
+  };
+
   return (
     <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
       <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
@@ -39,9 +86,9 @@ function JobExperience({
         <span className="mt-1 text-sm font-medium text-slate-300 leading-normal">
           {company}
         </span>
-        <p className="mt-2 text-sm text-slate-400 leading-normal">
-          {description}
-        </p>
+        <div className="mt-2 text-sm text-slate-400 leading-normal">
+          {renderDescription(description)}
+        </div>
         <ul className="flex mt-2 flex-wrap">
           {tecnologies.map((element: string, idx: number) => (
             <li key={idx} className="mr-1.5 mt-2">
