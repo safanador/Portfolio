@@ -11,6 +11,24 @@ import experiencesData from "./data/workExperience";
 import projectsData from "./data/projects"
 import uiTranslations from "./data/translations";
 
+interface Job {
+  startDate: string;
+  endDate: string;
+  title: string;
+  description: string;
+  company: string;
+  stack: string[];
+}
+
+interface Project {
+  title: string;
+  role: string;
+  technologies: string[];
+  description: string;
+  siteUri?: string;
+  photos: string[];
+}
+
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const experienceRef = useRef<HTMLDivElement | null>(null);
@@ -30,8 +48,8 @@ export default function Home() {
   }, []);
 
   const t = uiTranslations[lang];
-  const projects = projectsData[lang];
-  const experiences = experiencesData[lang];
+  const projects = (projectsData as Record<string, Project[]>)[lang];
+  const experiences = (experiencesData as Record<string, Job[]>)[lang];
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const x = e.clientX;
@@ -247,7 +265,7 @@ export default function Home() {
           </div>
           <div>
             <ol className="group/list">
-              {experiences.map((job: any, index: number) => (
+              {experiences.map((job: Job, index: number) => (
                 <li key={index} className="mb-12">
                   <JobExperience
                     startDate={job.startDate}
@@ -270,7 +288,7 @@ export default function Home() {
           </div>
           <div>
             <ul className="group/list">
-              {projects.map((project: any, index: number) => (
+              {projects.map((project: Project, index: number) => (
                 <li key={index} className="mb-12">
                   <Projects
                     title={project.title}
