@@ -3,12 +3,13 @@ const projectsData = {
     {
       title: "Cloudnel.com",
       role: "Ingeniero de Software",
-      technologies: ["Next.js", "Nest.js", "MySQL", "JWT", "AWS", "Docker", "Github Actions", "REST API", "Payment Gateways"],
+      technologies: ["Next.js", "Nest.js", "MySQL", "Redis", "BullMQ", "JWT", "AWS", "Docker", "Github Actions", "REST API", "Payment Gateways"],
       description:
         `1. Desarrollo de una plataforma SaaS para la sincronización y distribución de inventario en tiempo real entre agencias de viajes online (OTA). 
         2. Diseño e implementación de API REST para la gestión de reservas, tarifas dinámicas y disponibilidad. 
         3. Integración multicanal y procesamiento automatizado de reservas. 
-        4. Creación de un panel de informes y análisis para la gestión centralizada.`,
+        4. Implementación de Redis para caché y rate limiting, y BullMQ para colas de trabajo asíncronas.
+        5. Creación de un panel de informes y análisis para la gestión centralizada.`,
       siteUri: "https://cloudnel.com/",
       photos: [
         "https://res.cloudinary.com/djqpy9gf0/image/upload/v1776149037/Screenshot_2026-04-13_at_2.31.25_PM_sj4yba.png",
@@ -124,12 +125,13 @@ const projectsData = {
     {
       title: "Cloudnel.com",
       role: "Software Engineer",
-      technologies: ["Next.js", "Nest.js", "MySQL", "JWT", "AWS", "Docker", "Github Actions", "REST API", "Payment Gateways"],
+      technologies: ["Next.js", "Nest.js", "MySQL", "Redis", "BullMQ", "JWT", "AWS", "Docker", "Github Actions", "REST API", "Payment Gateways"],
       description:
         `1. Development of a SaaS platform for real-time inventory synchronization and distribution among Online Travel Agencies (OTAs). 
         2. Design and implementation of REST APIs for booking management, dynamic rates, and availability. 
         3. Multichannel integration and automated booking processing. 
-        4. Creation of a reporting and analytics dashboard for centralized management.`,
+        4. Implementation of Redis for caching and rate limiting, and BullMQ for asynchronous work queues.
+        5. Creation of a reporting and analytics dashboard for centralized management.`,
       siteUri: "https://cloudnel.com/",
       photos: [
         "https://res.cloudinary.com/djqpy9gf0/image/upload/v1776149037/Screenshot_2026-04-13_at_2.31.25_PM_sj4yba.png",

@@ -246,6 +246,9 @@ export default function Home() {
               {t.bio1}
             </p>
             <p className="mb-4 text-gray-300">
+              {t.bioBackend}
+            </p>
+            <p className="mb-4 text-gray-300">
               {t.bio2}
             </p>
             <p className="text-gray-300">
